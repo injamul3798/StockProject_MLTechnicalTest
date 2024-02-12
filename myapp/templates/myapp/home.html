@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trades Table</title>
+    <style>
+        /* Navbar styling */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Active/current tab */
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Table styling */
+        table {
+            width: 110%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Button styling */
+        .action-btn {
+            padding: 6px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a class="active" href="#home">Home</a>
+        <a href="/add/">Add New Information</a>
+        <a href="/visualize/">Data Visualization</a>
+        <a href="projectdescribe/">About</a>
+        <a href="/contact/">Contact</a>
+         
+    </div>
+
+    <h1>Trades Table</h1>
+     
+    <a href="/add/">
+        <button id="addRowBtn" class="action-btn">Add Row</button>
+    </a>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Trade Code</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Action</th>
+        </tr>
+        {% for trade in trades %}
+<tr>
+    <td>{{ trade.date }}</td>
+    <td>{{ trade.trade_code }}</td>
+    <td>{{ trade.high }}</td>
+    <td>{{ trade.low }}</td>
+    <td>{{ trade.open }}</td>
+    <td>{{ trade.close }}</td>
+    <td>{{ trade.volume }}</td>
+    <td>
+        <form action="{% url 'update_trade' trade.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="action-btn">Update</button>
+        </form>
+        <form id="deleteForm_{{ trade.pk }}" action="{% url 'delete_trade' trade.pk %}" method="post" onsubmit="return confirmDelete('{{ trade.pk }}')">
+            {% csrf_token %}
+            <button type="submit" class="action-btn">Delete</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+    </table>
+
+    <script>
+        // JavaScript function to confirm deletion
+        function confirmDelete(tradeId) {
+            var confirmDelete = confirm("Are you sure you want to delete this trade?");
+            return confirmDelete;
+        }
+
+        // JavaScript to handle adding a new row
+        document.getElementById("addRowBtn").addEventListener("click", function() {
+            // You can implement logic here to show a form or a modal for adding new data
+            // For simplicity, let's add an empty row directly to the table
+            var table = document.querySelector("table");
+            var newRow = table.insertRow(-1); // Insert row at the end of the table
+
+            // Insert empty cells for each column
+            for (var i = 0; i < 7; i++) {
+                newRow.insertCell(i);
+            }
+
+            // Optionally, you can add inputs or placeholders for the cells to allow user input
+            // For example:
+            // newRow.cells[0].innerHTML = '<input type="text" placeholder="Date">';
+            // newRow.cells[1].innerHTML = '<input type="text" placeholder="Trade Code">';
+            // ... and so on
+
+            // Add action buttons for the new row
+            newRow.insertCell(7).innerHTML = '<button class="action-btn">Update</button><button class="action-btn">Delete</button>';
+        });
+    </script>
+</body>
+</html>

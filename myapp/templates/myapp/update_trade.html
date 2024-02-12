@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Trade</title>
+    <style>
+        /* Container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Form */
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Table -->
+        <table>
+            <tr>
+                <th>Date</th>
+                <td>{{ trade.date }}</td>
+            </tr>
+            <tr>
+                <th>Trade Code</th>
+                <td>{{ trade.trade_code }}</td>
+            </tr>
+            <tr>
+                <th>High</th>
+                <td>{{ trade.high }}</td>
+            </tr>
+            <tr>
+                <th>Low</th>
+                <td>{{ trade.low }}</td>
+            </tr>
+            <tr>
+                <th>Open</th>
+                <td>{{ trade.open }}</td>
+            </tr>
+            <tr>
+                <th>Close</th>
+                <td>{{ trade.close }}</td>
+            </tr>
+            <tr>
+                <th>Volume</th>
+                <td>{{ trade.volume }}</td>
+            </tr>
+        </table>
+        
+        <!-- Form -->
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ trade.id }}">
+            
+            <label for="id_date">Date</label>
+            <input type="date" name="date" id="id_date" value="{{ trade.date }}" placeholder="Enter date">
+            
+            <label for="id_trade_code">Trade Code</label>
+            <input type="text" name="trade_code" id="id_trade_code" value="{{ trade.trade_code }}" placeholder="Enter trade code">
+            
+            <label for="id_high">High</label>
+            <input type="number" name="high" id="id_high" value="{{ trade.high }}" placeholder="Enter high">
+            
+            <label for="id_low">Low</label>
+            <input type="number" name="low" id="id_low" value="{{ trade.low }}" placeholder="Enter low">
+            
+            <label for="id_open">Open</label>
+            <input type="number" name="open" id="id_open" value="{{ trade.open }}" placeholder="Enter open">
+            
+            <label for="id_close">Close</label>
+            <input type="number" name="close" id="id_close" value="{{ trade.close }}" placeholder="Enter close">
+            
+            <label for="id_volume">Volume</label>
+            <input type="number" name="volume" id="id_volume" value="{{ trade.volume }}" placeholder="Enter volume">
+            
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    <footer class="text-center mt-5">
+        <p>© 2024 Trade Data. All rights reserved.</p>
+    </footer>
+</body>
+</html>

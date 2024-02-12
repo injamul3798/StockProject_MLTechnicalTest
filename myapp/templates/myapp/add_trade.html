@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trade</title>
+    <style>
+        /* Container */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Form fields */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Submit button */
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Trade</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_date">Date</label>
+            <input type="date" name="date" id="id_date">
+            
+            <label for="id_trade_code">Trade Code</label>
+            <input type="text" name="trade_code" id="id_trade_code">
+            
+            <label for="id_high">High</label>
+            <input type="number" name="high" id="id_high">
+            
+            <label for="id_low">Low</label>
+            <input type="number" name="low" id="id_low">
+            
+            <label for="id_open">Open</label>
+            <input type="number" name="open" id="id_open">
+            
+            <label for="id_close">Close</label>
+            <input type="number" name="close" id="id_close">
+            
+            <label for="id_volume">Volume</label>
+            <input type="number" name="volume" id="id_volume">
+            
+            <button type="submit">Add Trade</button>
+        </form>
+    </div>
+    <footer class="text-center mt-5">
+        <p>© 2024 Trade Data. All rights reserved.</p>
+    </footer>
+</body>
+</html>
