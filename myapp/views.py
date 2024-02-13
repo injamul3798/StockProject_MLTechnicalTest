@@ -58,7 +58,7 @@ def trades(request):
 import json
 
 def visualize_data(request):
-    with open('D:\\myproject\\trades.json..json', 'r') as file:
+    with open('D:\\myproject\\trades.json', 'r') as file:
         data = json.load(file)
     
     return render(request, 'myapp/trade.html', {'data': data})
