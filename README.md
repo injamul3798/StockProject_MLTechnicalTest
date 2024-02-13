@@ -67,6 +67,11 @@ Implement user-friendly features such as navigation links in the navbar, buttons
 ![Screenshot (587)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/239c0103-419b-4f57-8230-733e78b2b552)
 
 
+### Deployment
+Unfortunately i could not deployed the entire project.But i have deployed Project descrption here
+##### LINK : https://injamul3798.github.io/StockProject_MLTechnicalTest/
 
+### Challenges
+#### In this project, we have two models .We have also wokred with database.I face several problems during deployment this project. I have tried vercel,github to deployed.But somehow failed.I will learn it soon.
 Overall, the project demonstrates the development of a basic web application using Django framework, combining backend logic with frontend visualization to provide users with a comprehensive platform for managing and analyzing trade data.
 
