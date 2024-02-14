@@ -54,7 +54,12 @@ Implement user-friendly features such as navigation links in the navbar, buttons
 #### Add new trade
 ![Screenshot (580)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/089ff25f-33b9-4080-8056-82e2ce1b5194)
 #### Update Trade
-![Screenshot (581)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/2902c61a-e39a-4a86-831a-f3261ae8b06f)
+##### Previous image
+![Screenshot (593)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/a5a9d3a9-8048-4dfd-a40d-d0c189d45e35)
+##### Update value 
+![Screenshot (595)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/e1e57657-41fd-44bb-9587-6d94075a0ced)
+##### Final update value
+![Screenshot (596)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/1d427231-21fa-4c52-b8fe-8a1862bb03d8)
 #### Delete Trade
 ![Screenshot (582)](https://github.com/injamul3798/StockProject_MLTechnicalTest/assets/101572467/a3cd58d1-e58d-42b4-b801-420803a335fb)
 
